@@ -88,7 +88,7 @@ class KategoriController extends Controller
     /**
      * Detail Kategori beserta daftar buku di dalamnya.
      */
-    public function show($id)
+    public function show(string $id)
     {
         $kategori = collect($this->dataKategori())->firstWhere('id', (int) $id);
 
@@ -119,7 +119,7 @@ class KategoriController extends Controller
     /**
      * Cari kategori berdasarkan keyword pada nama / deskripsi.
      */
-    public function search($keyword)
+    public function search(string $keyword)
     {
         $keyword = trim((string) $keyword);
 

@@ -1,59 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Pengenalan Framework Laravel & MVC
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Tugas Pertemuan 9 — Routing, Controller dan View dengan Laravel Framework
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Daftar Route
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Method | URL | Controller / Action | Keterangan |
+|--------|-----|---------------------|------------|
+| GET | `/` | Closure | Halaman welcome |
+| GET | `/perpustakaan` | `PerpustakaanController@index` | Daftar buku |
+| GET | `/buku/{id}` | `PerpustakaanController@show` | Detail buku |
+| GET | `/about` | `PerpustakaanController@about` | Halaman about |
+| GET | `/anggota` | Closure | Daftar anggota |
+| GET | `/anggota/{id}` | Closure | Detail anggota |
+| GET | `/kategori` | `KategoriController@index` | Daftar kategori |
+| GET | `/kategori/{id}` | `KategoriController@show` | Detail kategori |
+| GET | `/kategori/search/{keyword}` | `KategoriController@search` | Cari kategori |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Screenshot Hasil
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Halaman Home
+> Source: [`resources/views/welcome.blade.php`](resources/views/welcome.blade.php)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+[![Home](screenshots/01-home.png)](screenshots/01-home.png)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+### 2. Daftar Buku (`/perpustakaan`)
+> Source: [`resources/views/perpustakaan/index.blade.php`](resources/views/perpustakaan/index.blade.php) · Controller: [`app/Http/Controllers/PerpustakaanController.php`](app/Http/Controllers/PerpustakaanController.php)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+[![Daftar Buku](screenshots/02-perpustakaan-index.png)](screenshots/02-perpustakaan-index.png)
 
-```bash
-composer require laravel/boost --dev
+---
 
-php artisan boost:install
-```
+### 3. Detail Buku (`/buku/1`)
+> Source: [`resources/views/perpustakaan/show.blade.php`](resources/views/perpustakaan/show.blade.php) · Controller: [`app/Http/Controllers/PerpustakaanController.php`](app/Http/Controllers/PerpustakaanController.php)
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+[![Detail Buku](screenshots/03-buku-detail.png)](screenshots/03-buku-detail.png)
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Halaman About (`/about`)
+> Source: [`resources/views/perpustakaan/about.blade.php`](resources/views/perpustakaan/about.blade.php) · Controller: [`app/Http/Controllers/PerpustakaanController.php`](app/Http/Controllers/PerpustakaanController.php)
 
-## Code of Conduct
+[![About](screenshots/04-about.png)](screenshots/04-about.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 5. Daftar Anggota (`/anggota`)
+> Source: [`resources/views/anggota/index.blade.php`](resources/views/anggota/index.blade.php) · Route: [`routes/web.php`](routes/web.php)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+[![Daftar Anggota](screenshots/05-anggota-index.png)](screenshots/05-anggota-index.png)
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# 60324021_MuhammadZakiMusyaffa_TugasPertemuan9" 
+### 6. Detail Anggota (`/anggota/1`)
+> Source: [`resources/views/anggota/show.blade.php`](resources/views/anggota/show.blade.php) · Route: [`routes/web.php`](routes/web.php)
+
+[![Detail Anggota](screenshots/06-anggota-detail.png)](screenshots/06-anggota-detail.png)
+
+---
+
+### 7. Daftar Kategori (`/kategori`)
+> Source: [`resources/views/kategori/index.blade.php`](resources/views/kategori/index.blade.php) · Controller: [`app/Http/Controllers/KategoriController.php`](app/Http/Controllers/KategoriController.php)
+
+[![Daftar Kategori](screenshots/07-kategori-index.png)](screenshots/07-kategori-index.png)
+
+---
+
+### 8. Detail Kategori (`/kategori/1`)
+> Source: [`resources/views/kategori/show.blade.php`](resources/views/kategori/show.blade.php) · Controller: [`app/Http/Controllers/KategoriController.php`](app/Http/Controllers/KategoriController.php)
+
+[![Detail Kategori](screenshots/08-kategori-detail.png)](screenshots/08-kategori-detail.png)
+
+---
+
+### 9. Pencarian Kategori (`/kategori/search/programming`)
+> Source: [`resources/views/kategori/search.blade.php`](resources/views/kategori/search.blade.php) · Controller: [`app/Http/Controllers/KategoriController.php`](app/Http/Controllers/KategoriController.php)
+
+[![Pencarian Kategori](screenshots/09-kategori-search.png)](screenshots/09-kategori-search.png)
