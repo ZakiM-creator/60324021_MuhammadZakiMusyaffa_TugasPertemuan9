@@ -5,10 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $buku['judul'] }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.ne t/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url('/') }}">
+                Sistem Perpustakaan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/perpustakaan') }}">Buku</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/anggota') }}">Anggota</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('kategori.index') }}">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/about') }}">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="{{ url('/kategori/search') }}" method="get">
+                    <input type="search" name="keyword" class="form-control me-2" placeholder="Cari kategori...">
+                    <button class="btn btn-light" type="submit">Cari</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <div class="container mt-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -16,6 +51,7 @@
                 <li class="breadcrumb-item active">{{ $buku['judul'] }}</li>
             </ol>
         </nav>
+
 
         <div class="card">
             <div class="card-header bg-primary text-white">
